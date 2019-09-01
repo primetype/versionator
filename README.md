@@ -1,8 +1,8 @@
 # Versionator: version information for build script
 
-[![Crates.io](https://img.shields.io/crates/v/versionator.svg?maxAge=2592000)](https://crates.io/crates/versionator)
+[![Crates.io](https://img.shields.io/crates/v/versionisator.svg?maxAge=2592000)](https://crates.io/crates/versionisator)
 
-[Documentation](https://docs.rs/crate/versionator)
+[Documentation](https://docs.rs/crate/versionisator)
 
 ## Usage
 
@@ -10,13 +10,13 @@ First, add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-versionator = "1.0"
+versionisator = "1.0"
 ```
 
 Next, add this to your build script (`build.rs`):
 
 ```rust
-extern crate versionator;
+extern crate versionisator;
 
 fn main() {
     let version = versionisator::Version::new(
