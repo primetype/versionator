@@ -1,0 +1,17 @@
+[package]
+name = "versionisator"
+version = "1.0.0"
+authors = ["Nicolas Di Prima <nicolas@primetype.co.uk>"]
+edition = "2018"
+keywords = ["version", "build_script"]
+repository = "https://github.com/primetype/versionator"
+homepage = "https://github.com/primetype/versionator#readme"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+description = "Tool for build.rs script to display handy version information"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cfg-if = "0.1"
