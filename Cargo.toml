@@ -1,6 +1,6 @@
 [package]
 name = "versionisator"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Nicolas Di Prima <nicolas@primetype.co.uk>"]
 edition = "2018"
 keywords = ["version", "build_script"]
