@@ -33,7 +33,7 @@ pub enum SourceVersion {
 
 impl Version {
     pub fn new<P: AsRef<Path>>(project_dir: P, crate_name: String, crate_version: String) -> Self {
-        Version {
+        let v = Version {
             crate_name,
             crate_version,
             source_version: SourceVersion::extract(project_dir.as_ref()),
@@ -41,7 +41,21 @@ impl Version {
             os: ::std::env::consts::OS.to_owned(),
             arch: ::std::env::consts::ARCH.to_owned(),
             compiler_version: compiler_version(project_dir),
+        };
+
+        if let Ok(target) = std::env::var("TARGET") {
+            v.with_target(target)
+        } else {
+            v
         }
+    }
+
+    pub fn with_target<T: AsRef<str>>(mut self, target: T) -> Self {
+        if let Some(platform_target) = platforms::find(target) {
+            self.arch = platform_target.target_arch.as_str().to_owned();
+            self.os = platform_target.target_os.as_str().to_owned();
+        }
+        self
     }
 
     pub fn simple(&self) -> String {

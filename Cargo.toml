@@ -15,3 +15,4 @@ description = "Tool for build.rs script to display handy version information"
 
 [dependencies]
 cfg-if = "0.1"
+platforms = "0.2"
