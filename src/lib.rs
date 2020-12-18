@@ -1,6 +1,3 @@
-#[macro_use]
-extern crate cfg_if;
-
 use std::{
     path::Path,
     process::{Command, ExitStatus},
@@ -94,19 +91,17 @@ impl CompilerMode {
     }
 }
 
-cfg_if! {
-    if #[cfg(debug_assertions)] {
-        impl CompilerMode {
-            pub fn guess() -> Self {
-                CompilerMode::Debug
-            }
-        }
-    } else {
-        impl CompilerMode {
-            pub fn guess() -> Self {
-                CompilerMode::Release
-            }
-        }
+#[cfg(debug_assertions)]
+impl CompilerMode {
+    pub fn guess() -> Self {
+        CompilerMode::Debug
+    }
+}
+
+#[cfg(not(debug_assertions))]
+impl CompilerMode {
+    pub fn guess() -> Self {
+	CompilerMode::Release
     }
 }
 

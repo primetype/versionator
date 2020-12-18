@@ -14,5 +14,4 @@ description = "Tool for build.rs script to display handy version information"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cfg-if = "0.1"
 platforms = "0.2"
