@@ -1,6 +1,6 @@
 [package]
 name = "versionisator"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["Nicolas Di Prima <nicolas@primetype.co.uk>"]
 edition = "2018"
 keywords = ["version", "build_script"]
@@ -14,4 +14,4 @@ description = "Tool for build.rs script to display handy version information"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-platforms = "0.2"
+platforms = "1.0"

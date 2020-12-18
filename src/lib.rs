@@ -48,7 +48,7 @@ impl Version {
     }
 
     pub fn with_target<T: AsRef<str>>(mut self, target: T) -> Self {
-        if let Some(platform_target) = platforms::find(target) {
+        if let Some(platform_target) = platforms::Platform::find(target.as_ref()) {
             self.arch = platform_target.target_arch.as_str().to_owned();
             self.os = platform_target.target_os.as_str().to_owned();
         }
@@ -101,7 +101,7 @@ impl CompilerMode {
 #[cfg(not(debug_assertions))]
 impl CompilerMode {
     pub fn guess() -> Self {
-	CompilerMode::Release
+        CompilerMode::Release
     }
 }
 
