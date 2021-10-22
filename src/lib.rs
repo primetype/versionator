@@ -47,6 +47,11 @@ impl Version {
         }
     }
 
+    pub fn with_source_version(mut self, source_version: SourceVersion) -> Self {
+        self.source_version = source_version;
+        self
+    }
+
     pub fn with_target<T: AsRef<str>>(mut self, target: T) -> Self {
         if let Some(platform_target) = platforms::Platform::find(target.as_ref()) {
             self.arch = platform_target.target_arch.as_str().to_owned();
@@ -110,6 +115,14 @@ impl SourceVersion {
         Self::extract_git(path).unwrap_or(SourceVersion::None)
     }
 
+    pub fn git(branch: String, hash: String, dirty: bool) -> Self {
+        Self::Git {
+            branch,
+            hash,
+            dirty,
+        }
+    }
+
     fn full(&self) -> String {
         match self {
             SourceVersion::None => "".to_owned(),
@@ -166,11 +179,7 @@ impl SourceVersion {
                 .arg("HEAD"),
         )?;
 
-        Some(SourceVersion::Git {
-            branch,
-            hash: rev,
-            dirty: !dirty.success(),
-        })
+        Some(Self::git(branch, rev, !dirty.success()))
     }
 }
 

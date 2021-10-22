@@ -1,8 +1,8 @@
 [package]
 name = "versionisator"
-version = "1.0.3"
+version = "1.1.0"
 authors = ["Nicolas Di Prima <nicolas@primetype.co.uk>"]
-edition = "2018"
+edition = "2021"
 keywords = ["version", "build_script"]
 repository = "https://github.com/primetype/versionator"
 homepage = "https://github.com/primetype/versionator#readme"
