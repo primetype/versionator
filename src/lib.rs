@@ -123,7 +123,7 @@ impl SourceVersion {
         }
     }
 
-    fn full(&self) -> String {
+    pub fn full(&self) -> String {
         match self {
             SourceVersion::None => "".to_owned(),
             SourceVersion::Git {
@@ -139,7 +139,7 @@ impl SourceVersion {
         }
     }
 
-    fn simple(&self) -> String {
+    pub fn simple(&self) -> String {
         match self {
             SourceVersion::None => "".to_owned(),
             SourceVersion::Git { hash, dirty, .. } => {
@@ -148,7 +148,7 @@ impl SourceVersion {
         }
     }
 
-    fn hash(&self) -> String {
+    pub fn hash(&self) -> String {
         match self {
             SourceVersion::None => "N/A".to_owned(),
             SourceVersion::Git { hash, .. } => hash.clone(),
